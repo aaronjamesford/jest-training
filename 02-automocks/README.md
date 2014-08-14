@@ -21,3 +21,22 @@ This file contains some $.click() listeners to perform actions when objects on t
 
 ### jenkins-dom-test.js
 
+Jest comes packaged with jsdom, we can use this to emulate a dom environment and test the interactions.
+
+`jest.dontMock('../jenkins-dom').dontMock('jquery');` In these tests we do not want to mock jquery so that the event listeners can be invoked and inspect the changes of the dom. We will, however, mock the jenkins module.
+
+`expect(jenkins.prototype.constructor).toBeCalledWith('rbrjenkins');` jest automatically mocks entire modules, we can now expect conditions on the Jenkins module.
+
+```
+jenkins.prototype.jobDescription.mockImplementation(function(jn, cb) {
+				cb("This is a job description");
+			});
+```
+We can also create our own mock implementations if needed.
+
+```
+describe('showLastFailure', function() {
+		// TODO
+	});
+```
+Write tests similar to that describing the showDescription feature, but for the correct events for showLastFailure in jenkins-dom.js obviously ;)
