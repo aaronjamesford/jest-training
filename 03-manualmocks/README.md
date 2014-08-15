@@ -19,7 +19,7 @@ This test is a basic example of using our new mock object and helper functions
 
 `beforeEach(function() { ... }` This is a setup function we can use that's run before every test
 
-`$('#showJobs').click();` will essentially use our new mock object. As far as I'm aware, you cannot use the .mock on this mock object :(
+`$('#showJobs').click();` will essentially use our new mock object. As far as I'm aware, you cannot use the .mock on this mock object, hence why there is only one test... :(
 
 #### A note on manual mocking
 
